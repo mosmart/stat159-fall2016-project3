@@ -13,6 +13,8 @@ regression_data <- scaled_schools[, features]
 # OLS with 10-fold cross validation
 regression <- lm(MN_EARN_WNE_MALE0_P6 ~., data = regression_data)
 cv <- CVlm(regression_data, regression, m=10, seed=29)
+
+# predictive error (from the cv)
 cv_ms <- attr(cv, "ms")
 
 # save results
