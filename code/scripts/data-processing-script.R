@@ -1,7 +1,8 @@
 # Data Processing
 
 # import data
-schools_all <- read.csv('../../data/MERGED2014_15_PP.csv', header=TRUE)
+schools_2014 <- read.csv('../../data/MERGED2014_15_PP.csv', header=TRUE)
+schools_2012 <- read.csv('../../data/MERGED2012_13_PP.csv', header=TRUE)
 
 # Computer and Information Sciences and Support Services (11), 
 # Engineering (14)
@@ -13,13 +14,15 @@ schools_all <- read.csv('../../data/MERGED2014_15_PP.csv', header=TRUE)
 # Science Technologies/Technicians (41)
 # Social Sciences (45)
 # Psychology (42)
-columns <- c('ADM_RATE', 'HIGHDEG', 'PREDDEG', 'MENONLY', 'CURROPER', 'WOMENONLY',
+columns_2014 <- c('ADM_RATE', 'HIGHDEG', 'PREDDEG', 'MENONLY', 'CURROPER', 'WOMENONLY',
              'UGDS','UGDS_WOMEN','SATMT25', 'SATMT75', 'SATMTMID', 'PCIP42', 'PCIP45',
-             'PCIP26','PCIP11', 'PCIP29', 'PCIP41', 'PCIP40', 'PCIP27', 'PCIP14', 'PCIP15')
+             'PCIP26','PCIP11', 'PCIP29', 'PCIP41', 'PCIP40', 'PCIP27', 'PCIP14', 'PCIP15', "UNITID")
+columns_2012 <- c("UNITID", 'MN_EARN_WNE_MALE0_P6', 'COUNT_WNE_MALE0_P6')
 
 
 # keep only desired columns
-schools <- schools_all[, columns]
+schools <- schools_2014[, columns_2014]
+earnings <- schools_2012[, columns_2012]
 
 # remove schools no longer in operation
 schools <- schools[which(schools$CURROPER == 1),]
@@ -40,6 +43,7 @@ schools <- schools[which(schools$HIGHDEG > 2),]
 schools$ADM_RATE <- as.numeric(levels(schools$ADM_RATE))[schools$ADM_RATE]
 schools$HIGHDEG <- as.factor(schools$HIGHDEG)
 schools$PREDEG <- as.factor(schools$PREDEG)
+schools$UNITID <- as.factor(schools$UNITID)
 schools$UGDS <- as.numeric(levels(schools$UGDS))[schools$UGDS]
 schools$UGDS_WOMEN <- as.numeric(levels(schools$UGDS_WOMEN))[schools$UGDS_WOMEN]
 schools$WOMEN_TOTAL <- round(schools$UGDS_WOMEN*schools$UGDS,0)
@@ -65,22 +69,32 @@ schools$STEM_DEG_PCNT <- schools$ENG_DEG_PCNT + schools$MATH_DEG_PCNT + schools$
 schools$STEM_DEG_TOTAL <- round(schools$UGDS*schools$STEM_DEG_PCNT,0)
 schools$STEM_DEG_WOMEN <- ifelse(schools$WOMENONLY ==1, schools$STEM_DEG_TOTAL,
                                  ifelse(schools$WOMENONLY ==0, round(schools$STEM_DEG_TOTAL*.5,0), NA))
+earnings$UNITID <- as.factor(earnings$UNITID)
+earnings$MN_EARN_WNE_MALE0_P6 <- as.numeric(levels(earnings$MN_EARN_WNE_MALE0_P6))[earnings$MN_EARN_WNE_MALE0_P6]
+earnings$COUNT_WNE_MALE0_P6 <- as.numeric(levels(earnings$COUNT_WNE_MALE0_P6))[earnings$COUNT_WNE_MALE0_P6]
 
 # remove all rows with na
 schools <- na.omit(schools)
+earnings <- na.omit(earnings)
 
 # remove men only and if currently operating
 schools <- schools[,-c(4:5)]
+
+# merge earnings data to school data
+school_data <- merge(schools, earnings, by = "UNITID")
+
+# export data
+write.table(school_data, file = "../../data/female-data-2014-15.csv", sep = ",", row.names  = FALSE)
 
 ###################
 
 # Create Dummy Variables
 
 # dummy out categorical variables
-temp_schools <- model.matrix(ADM_RATE ~ ., data = schools)
+temp_schools <- model.matrix(UNIT ~ ., data = school_data)
 
 # removing column of ones, and appending Balance
-new_schools <- cbind(temp_schools[ ,-1], ADM_RATE = schools$ADM_RATE)
+new_schools <- cbind(temp_schools[ ,-1], UNITID = school_data$UNITID)
 
 ###################
 
@@ -90,4 +104,4 @@ new_schools <- cbind(temp_schools[ ,-1], ADM_RATE = schools$ADM_RATE)
 scaled_schools <- scale(new_schools, center = TRUE, scale = TRUE)
 
 # export scaled data
-write.table(scaled_schools, file = "../../data/female-data-2014-15.csv", sep = ",", row.names  = FALSE)
+write.table(scaled_schools, file = "../../data/scaled-schools.csv", sep = ",", row.names  = FALSE)
