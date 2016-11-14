@@ -1,0 +1,23 @@
+
+
+1. PREDDEG=predominant degree type awarded
+2. CCBASIC=type of school
+3. MENONLY
+4. CURROPER=currently operating school?
+5. FEMALE=number of female attendants
+6. UGDS_WOMEN=number of female attendants pursuing a degree
+7. MN_EARN_WNE_MALE0_P6=Mean earnings of female students working and not enrolled 6 years after entry
+8. SATMT75 = number of SAT math scores at 75th percentile
+9. SATMTMID = median SAT math score
+10. ACTMT75 = number of ACT math scores at 75th percentile
+11. ACTMTMID = median ACT math score
+12.PCIP26 = # Science type degree
+13.PCIP29 = # Science type degree
+14.PCIP41 = # Science type degree
+15.PCIP27 = # Math degrees
+16.PCIP14 = # Engineering type degree
+17.PCIP15 = # Engineering type degree
+18.FEMALE_YR4_N = # females to graduate in 4 years from the school 
+19.FEMALE_YR6_N = # females to graduate in 6 years from the school 
+20.COUNT_WNE_MALE0_P6 = Number of female students working and not
+enrolled 6 years after entry
