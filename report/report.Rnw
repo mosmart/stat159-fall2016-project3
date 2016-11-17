@@ -1,0 +1,42 @@
+\documentclass[11pt,english]{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+\usepackage[document]{ragged2e}
+\usepackage{mathtools}
+
+\begin{document}
+
+\SweaveOpts{concordance=TRUE}
+
+\title{\Large Stat 159 - Project 3}
+
+\author{
+\small Kartik Gupta\\
+\small Lauren Hanlon\\
+\small Morgan Smart\\
+\small Dakota Lim\\
+}
+ 
+\maketitle
+
+\SweaveInput{00-abstract.Rnw}
+\vspace*{3\baselineskip}
+\SweaveInput{01-introduction.Rnw}
+\vspace*{3\baselineskip}
+\SweaveInput{02-data.Rnw}
+\vspace*{3\baselineskip}
+\SweaveInput{03-methods.Rnw}
+\vspace*{3\baselineskip}
+\SweaveInput{04-analysis.Rnw}
+\vspace*{3\baselineskip}
+\SweaveInput{05-results.Rnw}
+\vspace*{3\baselineskip}
+\SweaveInput{06-conclusions.Rnw}
+
+\end{document}

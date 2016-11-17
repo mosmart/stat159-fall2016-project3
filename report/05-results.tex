@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+\usepackage[document]{ragged2e}
+\usepackage{mathtools}
+\usepackage{Sweave}
+\begin{document}
+\input{05-results-concordance}
+
+
+{\large\textbf{Results}} \\\
+
+From our $10$-fold cross validation we observe a mean squared error of: 0.6064 \\\
+
+Next we build the score function, utilizing the above $\hat{\beta}_{OLS}$ values as the weights for our function. This yields the following expression:\\\
+
+$f(X_{\cdot,i}) \coloneqq $ (-0.0715)  $  X_{1,i}$ + 0.6094 $  X_{2,i}$ + (-0.1537) $  X_{3,i}$ + 0.1469 $  X_{4,i}$ + 0.0582 $  X_{5,i}$ + 0.2076 $  X_{6,i}$ \\\
+
+Where $X_{j,i}$ represents the j-th regressor value from our OLS regression of the i-th observation in the data matrix. Using this equation, we apply it to all schools in our data matrix and sort by their relative score to yield the top 20 colleges we recomend the client recruits from:
+\begin{table}[ht]
+\centering
+\begin{tabular}{rll}
+  \hline
+SCORE & INSTNM & CITY \\ 
+  \hline
+2.14 & Massachusetts Institute of Technology & Cambridge \\ 
+  2.06 & University of Chicago & Chicago \\ 
+  2.04 & Washington University in St Louis & Saint Louis \\ 
+  2.04 & Yale University & New Haven \\ 
+  2.03 & Vanderbilt University & Nashville \\ 
+  2.02 & Harvard University & Cambridge \\ 
+  2.01 & Princeton University & Princeton \\ 
+  1.99 & Rice University & Houston \\ 
+  1.98 & Columbia University in the City of New York & New York \\ 
+  1.96 & Northwestern University & Evanston \\ 
+  1.94 & Carnegie Mellon University & Pittsburgh \\ 
+  1.93 & Stanford University & Stanford \\ 
+  1.93 & Duke University & Durham \\ 
+  1.92 & Claremont McKenna College & Claremont \\ 
+  1.91 & University of Pennsylvania & Philadelphia \\ 
+  1.85 & Johns Hopkins University & Baltimore \\ 
+  1.80 & Dartmouth College & Hanover \\ 
+  1.79 & Williams College & Williamstown \\ 
+  1.78 & Brown University & Providence \\ 
+  1.75 & University of Notre Dame & Notre Dame \\ 
+   \hline
+\end{tabular}
+\caption{Top 20 Colleges to Recruit From} 
+\end{table}
+\end{document}

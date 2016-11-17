@@ -1,0 +1,23 @@
+
+<<echo = FALSE, cache = FALSE>>=
+# load any libraries neeed
+library(xtable)
+
+# load models
+load(file = "../data/regression-results.RData")
+load(file = "../data/ordered-schools.RData")
+@
+
+{\large\textbf{Analysis}} \\\
+
+After running our regression script we observed the following values for our $\hat{\beta}_{OLS}$ estimator:
+
+<<results = tex, fig = TRUE, include =FALSE, echo = FALSE>>=
+# load any libraries neeed
+betas = round(as.numeric(regression$coefficients), 4)
+options(xtable.comment = F)
+t1 = xtable(summary(regression)$coefficients, caption = "Predictor Significance")
+print.xtable(t1, type ="latex")
+@
+
+It's clear from the final column of the tabel that all the regressors are significant (with the exception of the intercept). Thus, we will utilize all values \emph{except} the intercept in our score function. \\

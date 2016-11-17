@@ -1,23 +1,17 @@
 
+{\large\textbf{Data}} \\\
 
-1. PREDDEG=predominant degree type awarded
-2. CCBASIC=type of school
-3. MENONLY
-4. CURROPER=currently operating school?
-5. FEMALE=number of female attendants
-6. UGDS_WOMEN=number of female attendants pursuing a degree
-7. MN_EARN_WNE_MALE0_P6=Mean earnings of female students working and not enrolled 6 years after entry
-8. SATMT75 = number of SAT math scores at 75th percentile
-9. SATMTMID = median SAT math score
-10. ACTMT75 = number of ACT math scores at 75th percentile
-11. ACTMTMID = median ACT math score
-12.PCIP26 = # Science type degree
-13.PCIP29 = # Science type degree
-14.PCIP41 = # Science type degree
-15.PCIP27 = # Math degrees
-16.PCIP14 = # Engineering type degree
-17.PCIP15 = # Engineering type degree
-18.FEMALE_YR4_N = # females to graduate in 4 years from the school 
-19.FEMALE_YR6_N = # females to graduate in 6 years from the school 
-20.COUNT_WNE_MALE0_P6 = Number of female students working and not
-enrolled 6 years after entry
+ "HIGHDEG4"
+              
+For our consultation we consider the following predictors from the scaled data set produced from the `data-processing-script.R`:
+\begin{enumerate}
+\item $ MN\_EARN\_WNE\_MALE0\_P6 =$ Mean earnings of female students working and not enrolled 6 years after entry
+\item $ SATMTMID =$ Median SAT math score
+\item $ ADM\_RATE =$ Admission rate
+\item $ STEM\_DEG\_WOMEN =$ Approximate number of female STEM majors
+\item $ WOMENOONLY =$ Indicator if schools that are only femal
+\item $ HIGHDEG4 $ = Indicator if the school offers Bachelors degrees 
+\item $ COUNT\_WNE\_MALE0\_P6 =$ Number of female students working and not enrolled 6 years after entry
+\end{enumerate}
+
+These predictors will be used to create a regression model predicting and, ultimately, create a score for each school.

@@ -1,0 +1,22 @@
+
+<<echo = FALSE, cache = FALSE>>=
+# load any libraries neeed
+library(xtable)
+
+# load models
+load(file = "../data/regression-results.RData")
+load(file = "../data/ordered-schools.RData")
+@
+
+{\large\textbf{Conclusions}} \\\
+
+After considering the request of our client, we filtered the data, built an OLS regression model, considered the significance of the coefficients, and built a comprehensive scoring function for any given college. Using this we were abel to recommend the following 20 universities to recruit from:
+<<results = tex, fig = TRUE, include =FALSE, echo = FALSE>>=
+# load any libraries neeed
+betas = round(as.numeric(regression$coefficients), 4)
+options(xtable.comment = F)
+t1 = xtable(ordered_schools[1:20,31:33], caption = "Top 20 Colleges to Recruit From")
+print.xtable(t1, type ="latex", include.rownames = FALSE)
+@
+\\
+It should be noted that the structure of this paper allows for it to be reproduced with each new data upload on \href{https://collegescorecard.ed.gov/data}{collegescorecard.ed.gov}

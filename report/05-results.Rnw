@@ -1,0 +1,27 @@
+
+<<echo = FALSE, cache = FALSE>>=
+# load any libraries neeed
+library(xtable)
+
+# load models
+load(file = "../data/regression-results.RData")
+load(file = "../data/ordered-schools.RData")
+@
+
+{\large\textbf{Results}} \\\
+
+From our $10$-fold cross validation we observe a mean squared error of: \Sexpr{round(cv_ms, 4)} \\\
+
+Next we build the score function, utilizing the above $\hat{\beta}_{OLS}$ values as the weights for our function. This yields the following expression:\\\
+
+$f(X_{\cdot,i}) \coloneqq $ (\Sexpr{betas[2]})  $  X_{1,i}$ + \Sexpr{betas[3]} $  X_{2,i}$ + (\Sexpr{betas[4]}) $  X_{3,i}$ + \Sexpr{betas[5]} $  X_{4,i}$ + \Sexpr{betas[6]} $  X_{5,i}$ + \Sexpr{betas[7]} $  X_{6,i}$ \\\
+
+Where $X_{j,i}$ represents the j-th regressor value from our OLS regression of the i-th observation in the data matrix. Using this equation, we apply it to all schools in our data matrix and sort by their relative score to yield the top 20 colleges we recomend the client recruits from:
+<<results = tex, fig = TRUE, include =FALSE, echo = FALSE>>=
+# load any libraries neeed
+betas = round(as.numeric(regression$coefficients), 4)
+options(xtable.comment = F)
+t1 = xtable(ordered_schools[1:20,31:33], caption = "Top 20 Colleges to Recruit From")
+print.xtable(t1, type ="latex", include.rownames = FALSE)
+@
+

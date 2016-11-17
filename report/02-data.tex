@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+\usepackage[document]{ragged2e}
+\usepackage{mathtools}
+\usepackage{Sweave}
+\begin{document}
+\input{02-data-concordance}
+
+{\large\textbf{Data}} \\\
+
+For our consultation we consider the following predictors from the full data set:
+\begin{enumerate}
+\item $ PREDDEG =$ predominant degree type awarded
+\item $ CCBASIC =$ type of school
+\item $ MENONLY =$ male only
+\item $ CURROPER =$ currently operating school?
+\item $ FEMALE =$ number of female attendants
+\item $ UGDS\_WOMEN =$ number of female attendants pursuing a degree
+\item $ MN\_EARN\_WNE\_MALE0\_P6 =$ Mean earnings of female students working and not enrolled 6 years after entry
+\item $ SATMT75 =$ number of SAT math scores at 75th percentile
+\item $ SATMTMID =$ median SAT math score
+\item $ ACTMT75 =$ number of ACT math scores at 75th percentile
+\item $ ACTMTMID =$ median ACT math score
+\item $ PCIP26 =$ \# Science type degree
+\item $ PCIP29 =$ \# Science type degree
+\item $ PCIP41 =$ \# Science type degree
+\item $ PCIP27 =$ \# Math degrees
+\item $ PCIP14 =$ \# Engineering type degree
+\item $ PCIP15 =$ \# Engineering type degree
+\item $ FEMALE\_YR4\_N =$ \# females to graduate in 4 years from the school
+\item $ FEMALE\_YR6\_N =$ \# females to graduate in 6 years from the school
+\item $ COUNT\_WNE\_MALE0\_P6 =$ Number of female students working and not enrolled 6 years after entry
+\end{enumerate}
+
+These predictors will be used to create a regression model predicting and, ultimately, create a score for each school.
+\end{document}

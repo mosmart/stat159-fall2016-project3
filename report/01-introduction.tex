@@ -1,3 +1,17 @@
+\documentclass{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+\usepackage[document]{ragged2e}
+\usepackage{mathtools}
+\usepackage{Sweave}
+\begin{document}
+\input{01-introduction-concordance}
 
 {\large\textbf{Intrduction}} \\\
 
@@ -8,3 +22,6 @@ Next we consider a cross-validated linear regression to predict the mean earning
 (MN\_EARN\_WNE\_MALE0\_P6) using the new data matrix, which we will use to create a scoring system for all schools. We use the mean earnings as a metric to represent the overall quality of a college's graduates, the intuition being that smarter more qualified candidates will be paid more. After preforming the regression, we check that all features are significant and use the weights of all significant terms.
 
 We then use the regression equation, with only the significant terms included, to create a score for each school. After giving each collge a score, we will rank them by said score and present the top institutions to our client.
+
+
+\end{document}
