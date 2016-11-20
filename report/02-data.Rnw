@@ -1,7 +1,5 @@
 
 {\large\textbf{Data}} \\\
-
- "HIGHDEG4"
               
 For our consultation we consider the following predictors from the scaled data set produced from the `data-processing-script.R`:
 \begin{enumerate}
