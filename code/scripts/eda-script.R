@@ -19,9 +19,9 @@ deg_pcnts <- female_full[c('ENG_DEG_PCNT', 'MATH_DEG_PCNT', 'SCIENCE_DEG_PCNT', 
 
 
 # Min, Q1, Median, Mean, Q3, Max
-summary_stats_general <- summary(general_qualities)
-summary_stats_deg_types <- summary(degree_types)
-summary_stats_deg_pcnts <- summary(degree_percentages)
+summary_stats_general <- summary(general)
+summary_stats_deg_types <- summary(deg_types)
+summary_stats_deg_pcnts <- summary(deg_pcnts)
 
 # Standard Deviations
 standard_deviation_general <- data.frame(sapply(general, function(x) sd(x)))
