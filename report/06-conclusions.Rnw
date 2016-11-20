@@ -16,7 +16,7 @@ After considering the request of our client, we filtered the data, built an OLS 
 betas = round(as.numeric(regression$coefficients), 4)
 options(xtable.comment = F)
 t1 = xtable(ordered_schools[1:20,31:33], caption = "Top 20 Colleges to Recruit From")
-print.xtable(t1, type ="latex", include.rownames = FALSE)
+#print.xtable(t1, type ="latex", include.rownames = FALSE)
 @
 \\
 It should be noted that the structure of this paper allows for it to be reproduced with each new data upload on \href{https://collegescorecard.ed.gov/data}{collegescorecard.ed.gov}

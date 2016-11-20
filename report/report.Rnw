@@ -36,7 +36,7 @@
 \SweaveInput{04-analysis.Rnw}
 \vspace*{3\baselineskip}
 \SweaveInput{05-results.Rnw}
-\vspace*{3\baselineskip}
+\vspace*{5\baselineskip}
 \SweaveInput{06-conclusions.Rnw}
 
 \end{document}
