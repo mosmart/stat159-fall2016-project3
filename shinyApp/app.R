@@ -1,5 +1,6 @@
 
 library(shiny)
+options(shiny.reactlog=TRUE)
 
 ui <- fluidPage(
   headerPanel('Exploring College Data Statistics'),
@@ -23,12 +24,12 @@ ui <- fluidPage(
                        "Female Students working after 6 years of entry" = "COUNT_WNE_MALE0_P6"))
   ),
   mainPanel(
-  textOutput("regplot")
+  plotOutput("regplot")
   )
 )
 
 server <- function(input, output) {
-  full_female = read.csv("../data/female-data-2014-15.csv")
+  female_full = read.csv("../data/female-data-2014-15.csv")
   
   output$plot1 = renderPlot({
     if(input$xcol == "hist-adm-rate"){
@@ -63,13 +64,17 @@ server <- function(input, output) {
                 "WOMENONLY", "HIGHDEG4")
   regression_data <- scaled_schools[, features]
 
+  error = reactive({
+    cat(file  = stderr(), typeof(input$variable))
+  })
   
-  #output$regplot 
-    
-    #renderPlot({
-    #plot(regression_data[,input$variable],regression_data$MN_EARN_WNE_MALE06_P6)
-    #abline(lm(MN_EARN_WNE_MALE0_P6 ~ input$variable, data = regression_data))
-  #})
+  output$regplot = renderPlot({
+    plot(regression_data[,input$variable],regression_data$MN_EARN_WNE_MALE06_P6)
+    abline(lm(MN_EARN_WNE_MALE0_P6 ~ input$variable, data = regression_data))
+    error()
+  })
+  
+  
     
 }
 
