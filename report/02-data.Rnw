@@ -14,6 +14,20 @@ For our consultation we consider the following predictors from the scaled data s
 
 These predictors will be used to create a regression model predicting and, ultimately, create a score for each school.
 
+### Cleaning the Data
+
+We chose the variables that seemed the most predictable of technical job performance and the variables that were about number of females in technical fields at a school. The combination of these two types of features will yield the best schools to target (in terms of number of potential recruits as well as recruit's skill level)
+
+In cleaning the data, we decided to remove entries that contained missing values. If there was a missing value of the features we used, we removed that row from the dataset. 
+
+Other notable operations we performed on the data to clean it included removing schools that were no longer in operation, removing schools with only male students, and removing schools that specialize in a non-stem field (i.e. associate colleges). We only kept schools that have a predominant degree type listed as well as schools that offer at least bachelors degrees.
+
+We had to change the data type of most columns either to numeric or a factor.
+
+We added in a few columns of our own based off of the information given to us. These included columns such as the percentage of engineering/math/science/tech degrees awarded. We also calculated the number of STEM degrees awarded to women based off of a series of conditions. We did this so that we could analyze the data in terms that would be valuable to our client.
+
+In addition to cleaning the dataset, we also created dummy variables for categorical variables. We also chose to mean center and standardize our variables to allow for accurate predictions and more straight-forward analysis.
+
 ### Descriptive Statistics
 
 To initially explore the data, we first broke up the dataset into general data, including ADM_RATE, SATMTMID, UGDS_WOMEN, MN_EARN_WNE_MALE0_P6 and COUNT_WNE_MALE0_P6. The summary statistics are shown below, but we would like to note some interesting facets of this table. The first being that the average admission rate is 0.647, which is for colleges in general. The mean SAT score for these schools is 531 out of the 770 maximum score, indicating that the mean SAT score for these schools is slightly below the median of 520. To turn our attention to focus on the data we have on women, we look at the number of undergrads enrolled in schools. The mean is actually above 0.50, indicating that more than half of the student body is made up of women. The mean earnings of women after 6 years of graduating hovers at around $34,000, while the maximum earnings reach $100,100. We note the high range of salaries, with a range of almost $80,000. The number of females working after 6 years is on average 1,000 and also has a relatively high range of 8,650. 
