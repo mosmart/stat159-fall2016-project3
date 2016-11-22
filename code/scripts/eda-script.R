@@ -11,7 +11,7 @@ female_full$STEM_DEG_PCNT_WOMEN = female_full$STEM_DEG_WOMEN / female_full$STEM_
 # Quantitative Analysis
 # Segmenting out some of the interesting quantitative attributes of our data
 
-general <- female_full[c('ADM_RATE', 'SATMT75', 'UGDS_WOMEN', 'MN_EARN_WNE_MALE0_P6', 'COUNT_WNE_MALE0_P6')]
+general <- female_full[c('ADM_RATE', 'SATMTMID', 'UGDS_WOMEN', 'MN_EARN_WNE_MALE0_P6', 'COUNT_WNE_MALE0_P6')]
 
 deg_types <- female_full[c('PCIP26', 'PCIP29', 'PCIP41', 'PCIP27', 'PCIP14', 'PCIP15')]
 
@@ -78,7 +78,7 @@ dev.off()
 
 # Correlation Matrix
 # For our correlation matrix, we chose a few variables which we think will have interesting correlations to study
-cor_data <- female_full[c('ADM_RATE', 'UGDS_WOMEN', 'MN_EARN_WNE_MALE0_P6', 'WOMEN_TOTAL', 'STEM_DEG_WOMEN')]
+cor_data <- female_full[c('ADM_RATE', 'UGDS_WOMEN', 'MN_EARN_WNE_MALE0_P6', 'STEM_DEG_PCNT', 'STEM_DEG_WOMEN')]
 cor_matrix <- cor(cor_data)
 
 #Scatterplot Matrix
