@@ -1,7 +1,6 @@
 
 library(shiny)
 library(corrplot)
-library(car)
 library(ggplot2)
 
 options(shiny.reactlog=TRUE)
