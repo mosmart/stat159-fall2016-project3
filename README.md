@@ -9,13 +9,15 @@ The CEO of a biotech startup is looking for candidates. She is interested in div
 
 __________________________________________________________________________
 
-The project is done in R, managed through git and github and incorporates markdown, sweave, shinyapp and some bash.
+## Project Details
 
-All the code is stored in the code/scripts folder. 
-The dataset and other data generated through the scripts are stored in the data/ folder.
-The report folder contains the .rnw files that build the report. For reproducibility and collaboration, the paper is divided into sections which are then combined into one .Rwn file and converted in a .PDF. 
-The slides for the report are contained within the slides/ folder.
-The ShinyApp can be used to explore the data and the analysis in an interactive manner. It is present in the shinyApp/ folder.
+The project is done in R, managed through git and github and incorporates markdown, sweave, shinyapp and some bash.   
+
+All the code is stored in the code/scripts folder.    
+The dataset and other data generated through the scripts are stored in the data/ folder.   
+The report folder contains the .rnw files that build the report. For reproducibility and collaboration, the paper is divided into sections which are then combined into one .Rwn file and converted in a .PDF.   
+The slides for the report are contained within the slides/ folder.  
+The ShinyApp can be used to explore the data and the analysis in an interactive manner. It is present in the shinyApp/ folder.  
 
 This project is created in a way so that it can be completely reproduced. Hence, the code and the dataset are available for use. Please keep in mind that the main dataset was too big to upload on github so follow the given link to access it: (link)
 
