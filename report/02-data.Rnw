@@ -1,4 +1,6 @@
 
+\usepackage{graphicx}
+
 {\large\textbf{Data}} \\\
               
 For our consultation we consider the following predictors from the scaled data set produced from the `data-processing-script.R`:
@@ -36,15 +38,15 @@ To initially explore the data, we first broke up the dataset into general data, 
 
 In the visualization below we note that admission rates center in the 60-80% range.
 
-*insert '../images/hist-adm-rate.png’ *
+\includegraphics{../images/hist-adm-rate.png}
 
 The histogram of the prearrange of women in undergrad is a visualization of the fact that there are over 0.50 women in most undergraduate student bodies.
 
-*insert ‘../images/hist-ugds-women.png’ *
+\includegraphics{‘../images/hist-ugds-women.png’}
 
 The histogram of mean women earnings after 6 years displays the wide spread in incomes we found in the data. We see the majority of incomes below $50,000, with a very small frequency of incomes above that mark.
 
-*insert ‘../images/hist-mn-earn.png’ *
+\includegraphics{../images/hist-mn-earn.png’}
 
 The next section of data we chose to explore were the degree types, namely the number of science, math and engineering type degrees. Shown in a table below, the means for these degrees range, with the highest average percentage in PCIP26, which is a science type of degree. The lowest average degree type is PCIP41, which is another type of science type degree.
 
@@ -58,7 +60,7 @@ The highest average degree type awarded were to science degrees, and the lowest 
 
 The visualization below shows a histogram of the total number of STEM degrees awarded, and we see a large percentage clustered below 5,000. The visualization directly following shows the percentage of these STEM degrees awarded to women. For this histogram we removed the schools with only women, and also only kept schools where there was some number of STEM degrees awarded to women. We see that the highest frequency is just below 0.50, and the spread is relatively small, between 0.48-0.52, meaning that most schools award a equal percentage of STEM degrees to women and men.
 
-*insert '../images/hist-stem-pcnt-women.png’ *
+\includegraphics{'../images/hist-stem-pcnt-women.png’}
 
 ### Correlation
 
@@ -69,4 +71,4 @@ In the table below, we can see the correlations between these variables. There s
 We can see a visualization of these relationships below as well.
 
 *insert cor_matrix table*
-*insert ‘../images/scatterplot-matrix.png’ *
+\includegraphics{../images/scatterplot-matrix.png}
