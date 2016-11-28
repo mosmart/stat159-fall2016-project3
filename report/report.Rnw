@@ -1,6 +1,7 @@
 \documentclass[11pt,english]{article}
 \usepackage[pdftex]{graphicx}
 \usepackage{hyperref}
+\usepackage{graphicx}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -32,11 +33,13 @@
 \SweaveInput{02-data.Rnw}
 \vspace*{3\baselineskip}
 \SweaveInput{03-methods.Rnw}
-\vspace*{3\baselineskip}
+\newpage
 \SweaveInput{04-analysis.Rnw}
-\vspace*{3\baselineskip}
+\newpage
 \SweaveInput{05-results.Rnw}
-\vspace*{5\baselineskip}
-\SweaveInput{06-conclusions.Rnw}
+\newpage
+\SweaveInput{06-considerations.Rnw}
+\vspace*{3\baselineskip}
+\SweaveInput{07-conclusions.Rnw}
 
 \end{document}

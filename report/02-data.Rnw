@@ -1,8 +1,6 @@
 
-\usepackage{graphicx}
-
-
 <<echo = FALSE, include=FALSE>>=
+library(xtable)
 # load eda output
 load(file = "../data/eda-output.RData")
 @
@@ -20,7 +18,7 @@ For our consultation we consider the following predictors from the scaled data s
 \item $ COUNT\_WNE\_MALE0\_P6 =$ Number of female students working and not enrolled 6 years after entry
 \end{enumerate}
 
-These predictors will be used to create a regression model predicting and, ultimately, create a score for each school.
+These predictors will be used to create a regression model predicting and, ultimately, create a score for each school.\\\
 
 \textbf{Cleaning the Data}
 
@@ -34,36 +32,48 @@ We had to change the data type of most columns either to numeric or a factor.
 
 We added in a few columns of our own based off of the information given to us. These included columns such as the percentage of engineering/math/science/tech degrees awarded. We also calculated the number of STEM degrees awarded to women based off of a series of conditions. We did this so that we could analyze the data in terms that would be valuable to our client.
 
-In addition to cleaning the dataset, we also created dummy variables for categorical variables. We also chose to mean center and standardize our variables to allow for accurate predictions and more straight-forward analysis.
+In addition to cleaning the dataset, we also created dummy variables for categorical variables. We also chose to mean center and standardize our variables to allow for accurate predictions and more straight-forward analysis. \\\
 
 \textbf{Descriptive Statistics}
 
-To initially explore the data, we first broke up the dataset into general data, including ADM_RATE, SATMTMID, UGDS_WOMEN, MN_EARN_WNE_MALE0_P6 and COUNT_WNE_MALE0_P6. The summary statistics are shown below, but we would like to note some interesting facets of this table. The first being that the average admission rate is 0.647, which is for colleges in general. The mean SAT score for these schools is 531 out of the 770 maximum score, indicating that the mean SAT score for these schools is slightly below the median of 520. To turn our attention to focus on the data we have on women, we look at the number of undergrads enrolled in schools. The mean is actually above 0.50, indicating that more than half of the student body is made up of women. The mean earnings of women after 6 years of graduating hovers at around $34,000, while the maximum earnings reach $100,100. We note the high range of salaries, with a range of almost $80,000. The number of females working after 6 years is on average 1,000 and also has a relatively high range of 8,650. 
+To initially explore the data, we first broke up the dataset into general data, including:
+
+\begin{enumerate}
+
+\item $ADM\_RATE$
+\item $SATMTMID$
+\item $UGDS\_WOMEN$
+\item $MN\_EARN\_WNE\_MALE0\_P6$
+\item $COUNT\_WNE\_MALE0\_P6$
+
+\end{enumerate}
+
+The summary statistics are shown below, but we would like to note some interesting facets of this table. The first being that the average admission rate is $0.647$, which is for colleges in general. The mean SAT score for these schools is $531$ out of the $770$ maximum score, indicating that the mean SAT score for these schools is slightly below the median of $520$. To turn our attention to focus on the data we have on women, we look at the number of undergrads enrolled in schools. The mean is actually above $0.50$, indicating that more than half of the student body is made up of women. The mean earnings of women after 6 years of graduating hovers at around \$34,000, while the maximum earnings reach \$100,100. We note the high range of salaries, with a range of almost \$80,000. The number of females working after 6 years is on average 1,000 and also has a relatively high range of 8,650. 
 
 <<echo=F, include = F, results=tex>>=
 options(xtable.comment = F)
 t1 = xtable(summary_stats_general, caption = "General Summary Statistics")
-print.xtable(t1, type ="latex")
+print.xtable(t1, type ="latex", scalebox = "0.7")
 @
 
-In the visualization below we note that admission rates center in the 60-80% range.
+In the visualization below we note that admission rates center in the 60-80\% range.
 
-\includegraphics{../images/hist-adm-rate.png}
+\noindent\includegraphics {../images/hist-adm-rate.png}
 
 The histogram of the prearrange of women in undergrad is a visualization of the fact that there are over 0.50 women in most undergraduate student bodies.
 
-\includegraphics{‘../images/hist-ugds-women.png’}
+\noindent\includegraphics{../images/hist-ugds-women.png}
 
-The histogram of mean women earnings after 6 years displays the wide spread in incomes we found in the data. We see the majority of incomes below $50,000, with a very small frequency of incomes above that mark.
+The histogram of mean women earnings after 6 years displays the wide spread in incomes we found in the data. We see the majority of incomes below \$50,000, with a very small frequency of incomes above that mark.
 
-\includegraphics{../images/hist-mn-earn.png’}
+\noindent\includegraphics [width=\linewidth]{../images/hist-mn-earn.png}
 
 The next section of data we chose to explore were the degree types, namely the number of science, math and engineering type degrees. Shown in a table below, the means for these degrees range, with the highest average percentage in PCIP26, which is a science type of degree. The lowest average degree type is PCIP41, which is another type of science type degree.
 
 <<echo=F, include = F, results=tex>>=
 options(xtable.comment = F)
-t2 = xtable(summary_stats_deg_type, caption = "Degree Type Summary Statistics")
-print.xtable(t2, type ="latex")
+t2 = xtable(summary_stats_deg_types, caption = "Degree Type Summary Statistics")
+print.xtable(t2, type ="latex", scalebox = "0.7")
 @
 
 The third and final section of data we explored were the degree percentages per school. We looked at the percentage of engineering, math, science, tech, overall STEM then the percentage of STEM degrees awarded to women. The number for percentage of STEM degrees awarded to women was based off of the number of STEM degrees awarded to women divided by the total number of STEM degrees awarded.
@@ -73,16 +83,16 @@ The highest average degree type awarded were to science degrees, and the lowest 
 <<echo=F, include = F, results=tex>>=
 options(xtable.comment = F)
 t3 = xtable(summary_stats_deg_pcnts, caption = "Degree Percentages Summary Statistics")
-print.xtable(t3, type ="latex")
+print.xtable(t3, type ="latex", scalebox = "0.65")
 @
 
 The visualization below shows a histogram of the total number of STEM degrees awarded, and we see a large percentage clustered below 5,000. The visualization directly following shows the percentage of these STEM degrees awarded to women. For this histogram we removed the schools with only women, and also only kept schools where there was some number of STEM degrees awarded to women. We see that the highest frequency is just below 0.50, and the spread is relatively small, between 0.48-0.52, meaning that most schools award a equal percentage of STEM degrees to women and men.
 
-\includegraphics{'../images/hist-stem-pcnt-women.png’}
+\noindent\includegraphics {../images/hist-stem-pcnt-women.png}
 
 \textbf{Correlation}
 
-We wanted a way to see the correlations between variables in this dataset. To create our correlation matrix, we chose a few variables which we thought would have interesting correlations to study. For this we chose ADM_RATE, UGDS_WOMEN, MN_EARN_WNE_MALE0_P6, WOMEN_TOTAL, and STEM_DEG_WOMEN. 
+We wanted a way to see the correlations between variables in this dataset. To create our correlation matrix, we chose a few variables which we thought would have interesting correlations to study. For this we chose ADM\_RATE, UGDS\_WOMEN, MN\_EARN\_WNE\_MALE0\_P6, WOMEN\_TOTAL, and STEM\_DEG\_WOMEN. 
 
 In the table below, we can see the correlations between these variables. There seems to be a very strong correlation between the mean earnings of women after 6 years and the number of stem degrees awarded to women. From this we can gather that women with degrees in STEM might have higher average earnings than other degrees. Other strong correlations to note are the admission rates and the number of undergraduate women at a school, as well as the mean earnings of women and the total percentage of STEM degrees awarded at a school. 
 
@@ -91,7 +101,9 @@ We can see a visualization of these relationships below as well.
 <<echo=F, include = F, results=tex>>=
 options(xtable.comment = F)
 t4 = xtable(cor_matrix, caption = "Correlation Matrix")
-print.xtable(t4, type ="latex")
+print.xtable(t4, type ="latex", scalebox = "0.6")
 @
 
-\includegraphics{../images/scatterplot-matrix.png}
+\noindent\includegraphics {../images/scatterplot-matrix.png}
+
+

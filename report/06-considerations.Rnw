@@ -1,0 +1,6 @@
+
+{\large\textbf{Considerations}} \\\
+
+One major shortcoming of our analysis for this project was that we didn't have exact statistics for the number of females graduating in each STEM major type, but instead had to assume that half of the STEM majors were female. In reality this might have been an overestimate, but this was the closest approximation given the data provided.
+
+In analyzing the quality of students at a particular school, we would have liked to look at GPA as an indicator of one's intelligence rather than SAT Math scores.

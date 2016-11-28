@@ -10,20 +10,7 @@ load(file = "../data/ordered-schools.RData")
 
 {\large\textbf{Conclusions}} \\\
 
-After considering the request of our client, we filtered the data, built an OLS regression model, considered the significance of the coefficients, and built a comprehensive scoring function for any given college. Using this we were abel to recommend the following 20 universities to recruit from:
-<<results = tex, fig = TRUE, include =FALSE, echo = FALSE>>=
-# load any libraries neeed
-betas = round(as.numeric(regression$coefficients), 4)
-options(xtable.comment = F)
-t1 = xtable(ordered_schools[1:20,31:33], caption = "Top 20 Colleges to Recruit From")
-#print.xtable(t1, type ="latex", include.rownames = FALSE)
-@
+After considering the request of our client, we filtered the data, built an OLS regression model, considered the significance of the coefficients, and built a comprehensive scoring function for any given college. Using this we were abel to recommend the following 20 universities to recruit from in Table 6.
 \\
 It should be noted that the structure of this paper allows for it to be reproduced with each new data upload on \href{https://collegescorecard.ed.gov/data}{collegescorecard.ed.gov}
 
-
-{\large\textbf{Considerations}} \\\
-
-One major shortcoming of our analysis for this project was that we didn't have exact statistics for the number of females graduating in each STEM major type, but instead had to assume that half of the STEM majors were female. In reality this might have been an overestimate, but this was the closest approximation given the data provided.
-
-In analyzing the quality of students at a particular school, we would have liked to look at GPA as an indicator of one's intelligence rather than SAT Math scores.

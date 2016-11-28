@@ -17,7 +17,7 @@ After running our regression script we observed the following values for our $\h
 betas = round(as.numeric(regression$coefficients), 4)
 options(xtable.comment = F)
 t1 = xtable(summary(regression)$coefficients, caption = "Predictor Significance")
-print.xtable(t1, type ="latex")
+print.xtable(t1, type ="latex", scalebox = "0.8")
 @
 
 It's clear from the final column of the tabel that all the regressors are significant (with the exception of the intercept). Thus, we will utilize all values \emph{except} the intercept in our score function. \\
