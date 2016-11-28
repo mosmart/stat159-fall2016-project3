@@ -1,0 +1,8 @@
+
+{\large\textbf{Recommendations}} \\\
+
+After preforming a preliminary examination of the data, building the previously detailed OLS regression model, and building our score function, we recommend our client recruit from the top 20 schools given in Table 6.
+
+It should be noted that our score function is derrived from our regression model, with the coefficients used were the same $\beta$ values becoming the weights in the function. Using this data, we are sure our client will be able to recruit highly qualified female STEM majors for her company.
+
+

@@ -38,8 +38,10 @@
 \newpage
 \SweaveInput{05-results.Rnw}
 \newpage
-\SweaveInput{06-considerations.Rnw}
+\SweaveInput{06-recommendations.Rnw}
 \vspace*{3\baselineskip}
-\SweaveInput{07-conclusions.Rnw}
+\SweaveInput{07-considerations.Rnw}
+\vspace*{3\baselineskip}
+\SweaveInput{08-conclusions.Rnw}
 
 \end{document}
