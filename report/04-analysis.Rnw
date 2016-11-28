@@ -6,6 +6,7 @@ library(xtable)
 # load models
 load(file = "../data/regression-results.RData")
 load(file = "../data/ordered-schools.RData")
+scaled_schools = read.table(file = "../data/scaled-schools.csv", header = T, sep = ",")
 @
 
 {\large\textbf{Analysis}} \\\
@@ -21,3 +22,10 @@ print.xtable(t1, type ="latex", scalebox = "0.8")
 @
 
 It's clear from the final column of the tabel that all the regressors are significant (with the exception of the intercept). Thus, we will utilize all values \emph{except} the intercept in our score function. \\
+
+We use OLS and only OLS because we wanted to use all of the features and there are very few features we're considering. If anything, we're lacking in features (due to the limitations of the initial dataset). The mean squared error of the prediction was \Sexpr{sum(regression$residuals^2)/length(regression$residuals)}. The mean squared error tells us how accurate the prediction is. However, we're not trying to predict salary, we simply was to see the magnitude of each feature on salary and then use these magnitudes as weights to determine the score of a school: predictability doesn'tmatter, just the magnitude of each feature. We chose salary as the response because we made the assumption that salary was a good measure of how well an employee preformed.
+
+
+
+
+
