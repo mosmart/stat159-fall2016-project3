@@ -35,7 +35,62 @@ The Makefile can essentially reproduce the whole analysis. The Makefile phony ta
 - session: To generate the session-info.txt and session.sh that document the session information. 
 - shinyapp: To execute the ShinyApp
 - clean: To delete the report file.  
-- cleanall: To delete all the .pdf, .Rdata, .txt and images produced by the project scripts and functions.  
+- cleanall: To delete all the .pdf, .Rdata, .txt and images produced by the project scripts and functions.
+
+## File Structure
+<pre><code>
+stat159-fall2016-project2/
+README.md
+Makefile
+LICENSE
+session.sh       # includes session info of tools used in project
+session-info.txt # contains versions used in project (output of session-info-script.R and bash-info-script.sh)
+.gitignore
+code/
+    README.md
+    functions/      # functions to run on regression models
+        regression-functions.R
+    scripts/        # EDA, scripts for each regression model and test/train data creation
+        data-processing-script.R
+        eda-script.R    
+        regression.R
+        session-info-script.R
+        simulation.R
+        train-test-data-scripts.R
+    tests/          # tests for regression functions
+        test-regression.R
+data/              # contains all data for project including downloaded data and data created in project
+    README.md
+    correlation-matrix.txt
+    summary-stats.txt
+    eda-output.RData
+    ordered-schools.RData
+    regression-results.RData
+    train-test.RData
+    female-data-2014-15.csv
+    scaled-schools.csv
+images/           # images created in the project to help with analysis
+    ...
+report/           # report constructed from sections and presentation (slides)
+    00-abstract.Rnw
+    01-introduction.Rnw
+    02-data.Rnw
+    03-methods.Rnw
+    04-analysis.Rnw
+    05-results.Rnw
+    06-recommendations.Rnw
+    07-considerations.Rnw
+    08-conclusions.Rnw
+    report.Rnw
+    report.pdf
+slides/              # presentation of methodology and findings
+    slides.Rmd
+    slides.html
+shinyApp/
+    app.R
+
+
+</code></pre>
 
 The code for this open-source project is licensed through the MIT Open Source License. And the media content is licensed through Creative Commons 4.0.
 
