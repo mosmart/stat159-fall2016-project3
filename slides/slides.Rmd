@@ -92,36 +92,28 @@ The mean earnings of women after 6 years of graduating hovers at around \$34,000
 
 In the visualization below we note that admission rates center in the 60-80\% range.
 
-![admission rates](../images/hist-adm-rate.png)
+<center>
+<img src="../images/hist-adm-rate.png"
+	height="450px"/>
+</center>
 
 ## Data - Continued
 The histogram of the prearrange of women in undergrad is a visualization of the fact that there are over 0.50 women in most undergraduate student bodies.
-![undergrad women](../images/hist-ugds-women.png)
+<center>
+<img src="../images/hist-ugds-women.png"
+	height="450px"/>
+</center>
 
-## Data - Continued
-The histogram of mean women earnings after 6 years displays the wide spread in incomes we found in the data. We see the majority of incomes below \$50,000, with a very small frequency of incomes above that mark.
-![mean earnings](../images/hist-mn-earn.png)
-
-The next section of data we chose to explore were the degree types, namely the number of science, math and engineering type degrees. Shown in a table below, the means for these degrees range, with the highest average percentage in PCIP26, which is a science type of degree. The lowest average degree type is PCIP41, which is another type of science type degree.
-
-## Data - Continued
-
-The visualization below shows a histogram of the total number of STEM degrees awarded, and we see a large percentage clustered below 5,000. The visualization directly following shows the percentage of these STEM degrees awarded to women. For this histogram we removed the schools with only women, and also only kept schools where there was some number of STEM degrees awarded to women. We see that the highest frequency is just below 0.50, and the spread is relatively small, between 0.48-0.52, meaning that most schools award a equal percentage of STEM degrees to women and men.
 
 ## Data - Continued
 
-![% women in STEM](../images/hist-stem-pcnt-women.png)
+We wanted a way to see the relationships between variables in this dataset. To create our correlation matrix, we chose a few variables which we thought would have interesting correlations to study. For this we chose ADM\_RATE, UGDS\_WOMEN, MN\_EARN\_WNE\_MALE0\_P6, WOMEN\_TOTAL, and STEM\_DEG\_WOMEN.
 
 ## Data - Continued
-
-We wanted a way to see the correlations between variables in this dataset. To create our correlation matrix, we chose a few variables which we thought would have interesting correlations to study. For this we chose ADM\_RATE, UGDS\_WOMEN, MN\_EARN\_WNE\_MALE0\_P6, WOMEN\_TOTAL, and STEM\_DEG\_WOMEN. 
-
-In the table below, we can see the correlations between these variables. There seems to be a very strong correlation between the mean earnings of women after 6 years and the number of stem degrees awarded to women. From this we can gather that women with degrees in STEM might have higher average earnings than other degrees. Other strong correlations to note are the admission rates and the number of undergraduate women at a school, as well as the mean earnings of women and the total percentage of STEM degrees awarded at a school. 
-
-## Data - Continued
-We can see a visualization of these relationships below as well.
-
-![scatterplot matrix](../images/scatterplot-matrix.png)
+<center>
+<img src="../images/scatterplot-matrix.png"
+	height="550px"/>
+</center>
 
 ## Methods
 
@@ -194,8 +186,8 @@ Where $X_{j,i}$ represents the j-th regressor value from our OLS regression of t
 # load any libraries neeed
 betas = round(as.numeric(regression$coefficients), 4)
 options(xtable.comment = F)
-t1 = xtable(ordered_schools[1:10,31:33], caption = "Top 10 Colleges to Recruit From")
-print.xtable(t1, type ="html", include.rownames = FALSE)
+t1 = xtable(ordered_schools[1:10,31:33], caption = "Top 1.0 Colleges to Recruit From")
+print.xtable(t1, type ="html", include.rownames = FALSE, size="\\fontsize{9pt}{10pt}")
 ```
 
 ## Recommedations
