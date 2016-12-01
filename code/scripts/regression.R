@@ -2,7 +2,7 @@
 library(DAAG)
 
 # import data
-scaled_schools <- read.csv("../../data/scaled-schools.csv", header=TRUE)
+scaled_schools <- read.csv("data/scaled-schools.csv", header=TRUE)
 
 # get just types of majors and stem major
 features <- c("MN_EARN_WNE_MALE0_P6", "ADM_RATE",
@@ -18,4 +18,4 @@ cv <- CVlm(regression_data, regression, m=10, seed=29)
 cv_ms <- attr(cv, "ms")
 
 # save results
-save(regression,cv,cv_ms, file = "../../data/regression-results.RData")
+save(regression,cv,cv_ms, file = "data/regression-results.RData")

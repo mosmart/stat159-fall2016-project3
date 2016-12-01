@@ -4,9 +4,9 @@
 library(xtable)
 
 # load models
-load(file = "../data/regression-results.RData")
-load(file = "../data/ordered-schools.RData")
-scaled_schools = read.table(file = "../data/scaled-schools.csv", header = T, sep = ",")
+load(file = "data/regression-results.RData")
+load(file = "data/ordered-schools.RData")
+scaled_schools = read.table(file = "data/scaled-schools.csv", header = T, sep = ",")
 @
 
 {\large\textbf{Analysis}} \\\

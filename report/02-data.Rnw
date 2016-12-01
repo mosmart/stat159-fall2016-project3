@@ -2,7 +2,7 @@
 <<echo = FALSE, include=FALSE>>=
 library(xtable)
 # load eda output
-load(file = "../data/eda-output.RData")
+load(file = "data/eda-output.RData")
 @
 
 {\large\textbf{Data}} \\\

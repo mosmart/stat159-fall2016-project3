@@ -1,12 +1,12 @@
 # load regression: regression,cv,cv_ms
-load("../../data/regression-results.RData") 
+load("data/regression-results.RData") 
 
 # load scaled-schools
-load("../../data/train-test.RData")
+load("data/train-test.RData")
 
 # load unscaled dataset
-school_data <- read.csv('../../data/female-data-2014-15.csv', header=TRUE)
-schools_2014 <- read.csv('../../data/MERGED2014_15_PP.csv', header=TRUE)
+school_data <- read.csv('data/female-data-2014-15.csv', header=TRUE)
+schools_2014 <- read.csv('data/MERGED2014_15_PP.csv', header=TRUE)
 
 # view regression results
 summary(regression) # see that all features are significant
@@ -33,6 +33,6 @@ schools_with_info <- merge(school_data, info, by =  "UNITID")
 ordered_schools <- schools_with_info[order(-schools_with_info$SCORE),] 
 
 # save ordered data
-save(ordered_schools, file = "../../data/ordered-schools.RData")
+save(ordered_schools, file = "data/ordered-schools.RData")
 
   

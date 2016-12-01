@@ -1,8 +1,8 @@
 # Data Processing
 
 # import data
-schools_2014 <- read.csv('../../data/MERGED2014_15_PP.csv', header=TRUE)
-schools_2012 <- read.csv('../../data/MERGED2012_13_PP.csv', header=TRUE)
+schools_2014 <- read.csv('data/MERGED2014_15_PP.csv', header=TRUE)
+schools_2012 <- read.csv('data/MERGED2012_13_PP.csv', header=TRUE)
 
 # Computer and Information Sciences and Support Services (11), 
 # Engineering (14)
@@ -84,7 +84,7 @@ schools <- schools[,-c(4:5)]
 school_data <- merge(schools, earnings, by = "UNITID")
 
 # export data
-write.table(school_data, file = "../../data/female-data-2014-15.csv", sep = ",", row.names  = FALSE)
+write.table(school_data, file = "data/female-data-2014-15.csv", sep = ",", row.names  = FALSE)
 
 ###################
 
@@ -104,4 +104,4 @@ new_schools <- cbind(temp_schools[ ,-1], UNITID = school_data$UNITID)
 scaled_schools <- scale(new_schools, center = TRUE, scale = TRUE)
 
 # export scaled data
-write.table(scaled_schools, file = "../../data/scaled-schools.csv", sep = ",", row.names  = FALSE)
+write.table(scaled_schools, file = "data/scaled-schools.csv", sep = ",", row.names  = FALSE)
