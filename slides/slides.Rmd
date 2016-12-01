@@ -10,7 +10,7 @@ library(xtable)
 knitr::opts_chunk$set(echo = TRUE)
 load(file = "../data/eda-output.RData")
 ```
-
+ 
 ## Abstract
 
 In this paper we will consider the data provided in \href{https://collegescorecard.ed.gov/data}{collegescorecard.ed.gov} to consult on the following issue:

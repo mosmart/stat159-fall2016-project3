@@ -37,10 +37,10 @@ data:
 session: session.sh #k
 	bash session.sh
 
-report: $(REPrnw) $(REGdata) $(IMAGES)  #k
+report: $(REPrnw) $(IMAGES)  #k
 	Rscript -e "library(rmarkdown);render('$(REPrnw)')"
 
-slides: slides/slides.Rmd   #k
+slides: slides/slides.Rmd  
 	Rscript -e "library(markdown);render(slides/slides.Rmd)"
 
 shinyapp: 
