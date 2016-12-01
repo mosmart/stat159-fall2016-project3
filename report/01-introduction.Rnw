@@ -1,5 +1,5 @@
 
-{\large\textbf{Intrduction}} \\\
+{\large\textbf{Introduction}} \\\
 
 We begin by cleaning the data. Since our raw data file contains hundreds of features, we create a new data matrix with only the desired predictors (see the Data section for further details). We also create several new features by combining columns, which imroves the regression model's interpretability by creating more consise predictors. All this is done through the 
 \texttt{code/scripts/data-processing-script.R} script.
