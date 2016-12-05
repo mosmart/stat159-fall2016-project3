@@ -24,7 +24,7 @@ This project is created in a way so that it can be completely reproduced. Hence,
 The Makefile can essentially reproduce the whole analysis. The Makefile phony targets are:
 
 - all: To run the complete analysis.  
-- data: To download the dataset from the website (**LINK**)
+- data: To download the dataset from the website mentioned above.
 - eda: To run the exploratory data analysis which creates graphs etc
 - dataprocessing: To process the data before using it in other scripts
 - premodeling: To prepare data for cross-fold regressions
