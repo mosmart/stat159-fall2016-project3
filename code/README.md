@@ -13,11 +13,3 @@
 `simulation.R` runs a simulation to predict the top schools to recruit from, saving the outputted list.
 
 `train-test-data-script.R` splits the scaled data into test and training sets for cross validation.
-
-### Functions
-
-`regression-functions.R` contains functions to produe the residual sum of squares, total sum of squres, r-squared statistic, f-statistic as well as the residual standard error.
-
-### Tests
-
-`test-regression.R`contains tests using the `testthat` package for each function in `regression-functions.R`.
