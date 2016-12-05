@@ -17,7 +17,8 @@ MODscript = code/scripts/train-test-data-scripts.R
 # IMPORTANT NOTE: Dataprocessing and Simulation arent part of all because the data/MERGED2014_15_PP.csv file isnt in the folder. Too big for upload on GitHub.
 # Please download the file and place it in the data folder. Add both to all targets and run project.
 
-all: eda premodeling regression report slides
+all: eda premodeling regression slides report shinyapp  
+		# add dataprocessing and simluation above after downloading/run make data
 
 eda: $(EDAscript) $(DATAraw)
 	Rscript $(EDAscript) $(DATAraw)
@@ -36,20 +37,23 @@ regression: code/scripts/regression.R $(DATAscaled)
 simulation: code/scripts/simulation.R $(DATAraw) $(DATAschool2014) data/regression-results.RData data/train-test.RData
 	Rscript code/scripts/simulation.R $(DATAraw) $(DATAschool2014) data/regression-results.RData data/train-test.RData
 
-data:
-	curl http://www-bcf.usc.edu/~gareth/ISL/Credit.csv
+data: 
+	curl https://ed-public-download.apps.cloud.gov/downloads/Most-Recent-Cohorts-All-Data-Elements.csv
+	# NOTE: Data file is around 150MB.
 
 session: session.sh 
 	bash session.sh
 
 report: $(REPrnw) $(IMAGES)  
-	Rscript -e "library(knitr);Sweave2knitr('$(REPrnw)')"
+	Rscript -e "library(knitr);knit2pdf('$(REPrnw)', output = 'report/report.pdf')"
+	#pandoc -s report.tex -o report.pdf
 
 slides: slides/slides.Rmd  
 	Rscript -e "library(markdown);render(slides/slides.Rmd)"
 
+
 shinyapp: 
-	Rscript -e "shiny::runApp("shinyApp/app.R", launch.browser=TRUE)"
+	Rscript -e "library(methods); shiny::runApp("shinyApp/app.R", launch.browser=TRUE)"
 
 clean: 
 	rm $(REPpdf)
