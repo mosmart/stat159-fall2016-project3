@@ -19,7 +19,7 @@ The report folder contains the .rnw files that build the report. For reproducibi
 The slides for the report are contained within the slides/ folder.  
 The ShinyApp can be used to explore the data and the analysis in an interactive manner. It is present in the shinyApp/ folder.  
 
-This project is created in a way so that it can be completely reproduced. Hence, the code and the dataset are available for use. Please keep in mind that the main dataset was too big to upload on github so follow the given link to access it [here](https://ed-public-download.apps.cloud.gov/downloads/Most-Recent-Cohorts-All-Data-Elements.csv)
+This project is created in a way so that it can be completely reproduced. Hence, the code and the dataset are available for use. Please keep in mind that the main dataset was too big to upload on github so follow the given link to access it [here](https://ed-public-download.apps.cloud.gov/downloads/Most-Recent-Cohorts-All-Data-Elements.csv)    
 
 The Makefile can essentially reproduce the whole analysis. The Makefile phony targets are:
 
